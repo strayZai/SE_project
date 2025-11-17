@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking Confirmation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Your Ticket</h1>
+    </header>
+    <main>
+        <div id="ticket" class="box">
+          
+        </div>
+    </main>
+    <script>
+        const ticketDiv = document.getElementById("ticket");
+        const bookingData = JSON.parse(localStorage.getItem("latestBooking"));
+
+        if (bookingData) {
+            ticketDiv.innerHTML = `
+                <h2>Booking Confirmed!</h2>
+                <p><strong>Booking ID:</strong> ${bookingData.id}</p>
+                <p><strong>Seats:</strong> ${bookingData.seats}</p>
+                <p><strong>Showtime:</strong> ${bookingData.showtime}</p>
+                <p><strong>Hall:</strong> ${bookingData.hall}</p>
+                <p><strong>Date:</strong> ${bookingData.date}</p>
+            `;
+        } else {
+            ticketDiv.innerHTML = `<p>No booking found.</p>`;
+        }
+    </script>
+</body>
+</html>

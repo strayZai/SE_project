@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="style.css">
+<title>Book Tickets</title>
+</head>
+
+<body>
+
+<header>
+<h1>Book Your Seat</h1>
+</header>
+
+<main>
+
+<!-- SHOWTIME -->
+<section class="box">
+ <h2>Showtime</h2>
+ <select id="showtime" name="showtime">
+   <option value="1">1:20 AM</option>
+   <option value="2">2:15 AM</option>
+   <option value="3">4:00 PM</option>
+   <option value="4">7:30 PM</option>
+ </select>
+</section>
+
+<!-- HALL -->
+<section class="box">
+<h2>Hall</h2>
+<select id="hall" name="hall">
+ <option value="1">Standard</option>
+ <option value="2">Suites</option>
+</select>
+</section>
+
+<div class="screen">SCREEN</div>
+
+<form action="book.php" method="POST">
+
+
+<input type="hidden" id="selectedSeats" name="selectedSeats">
+
+<div class="seating-area">
+
+<div class="row-label">A</div>
+<div class="row">
+ <div class="seat available" data-seat-id="1"></div>
+ <div class="seat available" data-seat-id="2"></div>
+ <div class="seat reserved"  data-seat-id="3"></div>
+ <div class="seat available" data-seat-id="4"></div>
+</div>
+
+<div class="row-label">B</div>
+<div class="row">
+ <div class="seat reserved"  data-seat-id="5"></div>
+ <div class="seat available" data-seat-id="6"></div>
+ <div class="seat available" data-seat-id="7"></div>
+ <div class="seat reserved"  data-seat-id="8"></div>
+</div>
+
+<div class="row-label">C</div>
+<div class="row">
+ <div class="seat available" data-seat-id="9"></div>
+ <div class="seat reserved"  data-seat-id="10"></div>
+ <div class="seat available" data-seat-id="11"></div>
+ <div class="seat available" data-seat-id="12"></div>
+</div>
+
+</div>
+
+<div class="legend">
+<div class="legend-item">
+ <div class="legend-seat available"></div>
+ <span>Available</span>
+</div>
+<div class="legend-item">
+ <div class="legend-seat selected"></div>
+ <span>Selected</span>
+</div>
+<div class="legend-item">
+ <div class="legend-seat reserved"></div>
+ <span>Reserved</span>
+</div>
+</div>
+
+<button type="button" class="next-btn" onclick="goToPayment()">Proceed to Payment</button>
+
+</form>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,105 @@
+body {
+  
+  font-family:Rubik; color:#000000;   
+  background-attachment: fixed ;
+  margin:0;
+  padding:0;
+}
+
+h1,h2{
+  text-align: center;
+  letter-spacing: 2px;
+  color: #060270;
+  margin-top:50px;
+  padding-right:250px;
+}
+
+/* seat layout */ 
+.seating-area {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 15px;
+    margin: 20px auto;
+    width: fit-content;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.seat {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    cursor: pointer;
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: transform 0.2s ease;
+    border: 2px solid #ddd;
+    position: relative;
+    z-index: 1;
+}
+
+.seat::after {
+    content: "";
+    background-image: url('seat.png');
+    background-size: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+.seat.available {
+    background-color: white !important;
+}
+
+.seat.reserved {
+    background-color: #bfbfbf !important;
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+
+.seat.selected {
+    background-color: #c27bff !important;
+    border-color: #8e3bd9;
+    transform: scale(1.1);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0;
+}
+
+.legend-seat {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+.legend-seat.available {
+    background-color: white;
+    border: 1px solid #ccc;
+}
+
+.legend-seat.selected {
+    background-color: #c27bff; 
+}
+
+.legend-seat.reserved {
+    background-color: #bfbfbf; 
+}
