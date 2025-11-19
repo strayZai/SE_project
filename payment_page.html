@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-       <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
     <title>Payment</title>
- 
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -13,35 +13,55 @@
 
 <main>
 
+    <!-- PAYMENT METHODS -->
+    <div class="payment-methods box">
+        <h3>Select Payment Method</h3>
+
+        <div class="methods">
+            <label>
+                <input type="radio" name="payMethod" value="Credit Card">
+                <img src="creditcard.png" alt="Credit Card">
+            </label>
+
+            <label>
+                <input type="radio" name="payMethod" value="Mada">
+                <img src="mada.png" alt="Mada">
+            </label>
+
+            <label>
+                <input type="radio" name="payMethod" value="Apple Pay">
+                <img src="applepay.png" alt="Apple Pay">
+            </label>
+        </div>
+    </div>
+
+    <!-- PAYMENT FORM -->
     <form id="paymentForm" class="box">
 
         <label>Card Holder Name:
             <input type="text" id="cardName" placeholder="Name on Card"
-       pattern="[A-Za-z ]+" required>
-
+                   pattern="[A-Za-z ]+" required disabled>
         </label>
 
         <label>Card Number:
-            <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" 
-       pattern="[0-9]{16}" maxlength="16" required>
-
+            <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000"
+                   pattern="[0-9]{16}" maxlength="16" required disabled>
         </label>
 
         <label>Expiry Date:
-            <input type="month" id="expiry" required>
+            <input type="month" id="expiry" required disabled>
         </label>
 
         <label>CVV:
-            <input type="password" id="cvv" placeholder="123" 
-       pattern="[0-9]{3}" maxlength="3" required>
-
+            <input type="password" id="cvv" placeholder="123"
+                   pattern="[0-9]{3}" maxlength="3" required disabled>
         </label>
 
-        <button type="submit" class="pay-btn">Pay Now</button>
-
+        <button type="submit" class="pay-btn" disabled>Pay Now</button>
     </form>
 
 </main>
+
 <script src="script.js"></script>
 </body>
 </html>
