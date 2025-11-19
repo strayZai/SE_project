@@ -38,22 +38,41 @@ function goToPayment() {
 }
 
 
-// PAYMENT PAGE CODE
-document.getElementById("paymentForm").onsubmit = function(e){
+//PAYMENT PAGE CODE
+
+function enableFields() {
+    document.getElementById("cardName").disabled = false;
+    document.getElementById("cardNumber").disabled = false;
+    document.getElementById("expiry").disabled = false;
+    document.getElementById("cvv").disabled = false;
+    document.querySelector(".pay-btn").disabled = false;
+}
+
+const paymentRadios = document.querySelectorAll("input[name='payMethod']");
+paymentRadios.forEach(radio => {
+    radio.addEventListener("change", enableFields);
+});
+
+document.getElementById("paymentForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const name = document.getElementById("cardName").value;
-    const number = document.getElementById("cardNumber").value;
-    const expiry = document.getElementById("expiry").value;
-    const cvv = document.getElementById("cvv").value;
-
-    if (!name || !number || !expiry || !cvv) {
-        alert("⚠️ Please fill in all payment details.");
+    const selectedMethod = document.querySelector("input[name='payMethod']:checked");
+    if (!selectedMethod) {
+        alert("⚠️ Please select a payment method first.");
         return;
     }
 
+    const name = document.getElementById("cardName").value.trim();
+    const number = document.getElementById("cardNumber").value.trim();
+    const expiry = document.getElementById("expiry").value;
+    const cvv = document.getElementById("cvv").value.trim();
 
-    const seats = localStorage.getItem("selectedSeats") || "";
+    if (!name || !number || !expiry || !cvv) {
+        alert("⚠️ Please fill all card details.");
+        return;
+    }
+
+    const seats = localStorage.getItem("selectedSeats") || "Not specified";
     const showtime = localStorage.getItem("showtime") || "Not specified";
     const hall = localStorage.getItem("hallType") || "Not specified";
 
@@ -64,17 +83,11 @@ document.getElementById("paymentForm").onsubmit = function(e){
         seats: seats,
         showtime: showtime,
         hall: hall,
-        date: new Date().toLocaleString()
+        date: new Date().toLocaleString(),
+        method: selectedMethod.value
     };
-    localStorage.setItem("latestBooking", JSON.stringify(bookingData));
 
-   
-    document.getElementById("paymentForm").innerHTML = `
-        <h2>Payment Successful!</h2>
-        <p>Booking ID: <strong>${bookingId}</strong></p>
-        <p>Seats: ${seats}</p>
-        <p>Showtime: ${showtime}</p>
-        <p>Hall: ${hall}</p>
-        <h2>Booking Confirmed!</h2>
-    `;
-};
+    localStorage.setItem("latestBooking", JSON.stringify(bookingData));
+    window.location.href = "booking_confirmation.html";
+});
+
