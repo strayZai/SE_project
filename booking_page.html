@@ -11,81 +11,85 @@
 <h1>Book Your Seat</h1>
 </header>
 
-<main>
+<main class="main-container">
 
-<!-- SHOWTIME -->
-<section class="box">
- <h2>Showtime</h2>
- <select id="showtime" name="showtime">
-   <option value="1">1:20 AM</option>
-   <option value="2">2:15 AM</option>
-   <option value="3">4:00 PM</option>
-   <option value="4">7:30 PM</option>
- </select>
-</section>
+  <div class="sidebar">
+ 
+    <section class="box">
+      <div class="hall-container"><h5>Hall</h5>
+        <div class="hall-option" data-hall="1">Hall 1</div>
+        <div class="hall-option" data-hall="2">Hall 2</div>
+      </div>
+      <input type="hidden" name="hall" id="hall">
+    </section> 
 
-<!-- HALL -->
-<section class="box">
-<h2>Hall</h2>
-<select id="hall" name="hall">
- <option value="1">Standard</option>
- <option value="2">Suites</option>
-</select>
-</section>
+    <section class="box">
+      <div class="showtime-container"><h5>Showtime</h5>
+        <div class="showtime-option" data-time="1:20 AM">1:20 AM</div>
+        <div class="showtime-option" data-time="2:15 AM">2:15 AM</div>
+        <div class="showtime-option" data-time="4:00 PM">4:00 PM</div>
+        <div class="showtime-option" data-time="7:30 PM">7:30 PM</div>
+      </div>
+      <input type="hidden" name="showtime" id="showtime">
+    </section>
+    </div>
 
-<div class="screen">SCREEN</div>
+    
+  
+  <div class="seats-column">
+    <div class="screen">SCREEN</div>
 
-<form action="book.php" method="POST">
+    <form action="book.php" method="POST">
 
+      <input type="hidden" id="selectedSeats" name="selectedSeats">
 
-<input type="hidden" id="selectedSeats" name="selectedSeats">
+      <div class="seating-area">
 
-<div class="seating-area">
+        <div class="row-label">A</div>
+        <div class="row">
+          <div class="seat available" data-seat-id="1"></div>
+          <div class="seat available" data-seat-id="2"></div>
+          <div class="seat reserved" data-seat-id="3"></div>
+          <div class="seat available" data-seat-id="4"></div>
+        </div>
 
-<div class="row-label">A</div>
-<div class="row">
- <div class="seat available" data-seat-id="1"></div>
- <div class="seat available" data-seat-id="2"></div>
- <div class="seat reserved"  data-seat-id="3"></div>
- <div class="seat available" data-seat-id="4"></div>
-</div>
+        <div class="row-label">B</div>
+        <div class="row">
+          <div class="seat reserved" data-seat-id="5"></div>
+          <div class="seat available" data-seat-id="6"></div>
+          <div class="seat available" data-seat-id="7"></div>
+          <div class="seat reserved" data-seat-id="8"></div>
+        </div>
 
-<div class="row-label">B</div>
-<div class="row">
- <div class="seat reserved"  data-seat-id="5"></div>
- <div class="seat available" data-seat-id="6"></div>
- <div class="seat available" data-seat-id="7"></div>
- <div class="seat reserved"  data-seat-id="8"></div>
-</div>
+        <div class="row-label">C</div>
+        <div class="row">
+          <div class="seat available" data-seat-id="9"></div>
+          <div class="seat reserved" data-seat-id="10"></div>
+          <div class="seat available" data-seat-id="11"></div>
+          <div class="seat available" data-seat-id="12"></div>
+        </div>
 
-<div class="row-label">C</div>
-<div class="row">
- <div class="seat available" data-seat-id="9"></div>
- <div class="seat reserved"  data-seat-id="10"></div>
- <div class="seat available" data-seat-id="11"></div>
- <div class="seat available" data-seat-id="12"></div>
-</div>
+      </div>
 
-</div>
+      <div class="legend">
+        <div class="legend-item">
+          <div class="legend-seat available"></div>
+          <span>Available</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-seat selected"></div>
+          <span>Selected</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-seat reserved"></div>
+          <span>Reserved</span>
+        </div>
+      </div>
 
-<div class="legend">
-<div class="legend-item">
- <div class="legend-seat available"></div>
- <span>Available</span>
-</div>
-<div class="legend-item">
- <div class="legend-seat selected"></div>
- <span>Selected</span>
-</div>
-<div class="legend-item">
- <div class="legend-seat reserved"></div>
- <span>Reserved</span>
-</div>
-</div>
+      <button type="button" class="next-btn" onclick="goToPayment()">Proceed to Payment</button>
 
-<button type="button" class="next-btn" onclick="goToPayment()">Proceed to Payment</button>
-
-</form>
+    </form>
+  </div>
 
 </main>
 
