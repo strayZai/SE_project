@@ -1,0 +1,209 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5e7dc;  /* Beige color */
+    margin: 0;
+    padding: 0;
+    color: #333;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+
+
+/* General Header Styles */
+header {
+    background-color: #2a2a2a;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Centering the "BOOK NOW!" text */
+.header-content {
+    flex: 1;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+    color: #fbc02d; /* Golden color for "BOOK NOW!" */
+    font-family: 'Georgia', serif; /* Elegant font for the heading */
+}
+
+/* Styling the links in the header */
+.right-icons a {
+    color: #fbc02d;  /* Golden color for the links */
+    text-decoration: none; /* Remove underline */
+    margin-left: 20px;
+    font-size: 18px; /* Adjust the font size */
+    font-family: 'Georgia', serif; /* Elegant font for links */
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for the links */
+.right-icons a:hover {
+    color: #e68900; /* Darker golden color when hovered */
+}
+
+
+/* Search Section */
+.search-container {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-container form {
+    display: flex;
+    width: 60%;
+}
+
+#search-bar {
+    width: 85%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Search Button */
+button {
+    padding: 10px;
+    background-color: #d6b25e;; /* Golden color for the search button */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #f4b400; /* Slightly darker golden color on hover */
+}
+
+/* Now Showing & Coming Soon Sections */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2a2a2a;
+    margin-bottom: 15px;
+    font-family: 'Verdana', sans-serif; /* Changed the font for section titles */
+}
+
+.movie-list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.movie-item {
+    width: 22%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+    position: relative; /* Keep position relative for z-index to work */
+}
+
+.movie-item .poster-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e5cd93; /* Color behind the poster */
+    z-index: 1; /* Lower than the movie name */
+    border-radius: 8px;
+}
+
+.movie-item img {
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+    z-index: 2; /* Ensures the image stays above the background */
+}
+
+/* Ensure the movie title appears above the dark background */
+.movie-item h3 {
+    position: relative;
+    z-index: 3; /* Ensure the title is always on top */
+    color: #333;
+    font-size: 18px;
+    font-family: 'Georgia', serif;
+}
+
+
+.rating {
+    margin-top: 5px;
+    color: #fbc02d; /* Golden color for rating stars */
+}
+
+/* General Footer Styles */
+footer {
+    background-color: #2a2a2a;
+    color: #fff;
+    text-align: center;
+    padding: 40px 20px;  /* Added more padding for better spacing */
+    margin-top: 40px; /* Added margin-top to create space between footer and content above */
+}
+
+footer h2 {
+    font-size: 24px; /* Increased font size for better visibility */
+    margin-bottom: 10px;
+    font-family: 'Georgia', serif; /* Elegant font for footer heading */
+    color: #fbc02d; /* Added golden color for visibility */
+}
+
+footer p {
+    font-size: 16px; /* Adjusted font size for better clarity */
+    color: #fff;  /* Ensured white color for text */
+    margin-top: 10px;
+}
+
+/* Contact Us Section */
+#contact-us {
+    margin-bottom: 20px; /* Added margin to make the "Contact Us" section more separated */
+}
+
+
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+    .movie-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-item {
+        width: 80%;
+        margin-bottom: 20px;
+    }
+
+    .search-container form {
+        width: 90%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    header h1 {
+        margin-bottom: 10px;
+    }
+
+    .right-icons {
+        margin-top: 15px;
+    }
+}
